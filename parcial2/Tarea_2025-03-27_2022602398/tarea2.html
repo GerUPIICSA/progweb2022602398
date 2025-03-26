@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadena Murciélago</title>
+</head>
+<body>
+    <h2>Análisis de la cadena "murcielago"</h2>
+
+    <script>
+        let cadena = "murcielago";
+        let vocales = "aeiou";
+        let numVocales = 0;
+        let numConsonantes = 0;
+        let idiomaEfe = "";
+        
+        let i;
+        for (i = 0; i < cadena.length; i++) {
+            let letra = cadena[i];
+            let esVocal = false;
+            let j;
+            for (j = 0; j < vocales.length; j++) {
+                if (letra === vocales[j]) {
+                    esVocal = true;
+                }
+            }
+            
+            if (esVocal) {
+                numVocales++;
+                idiomaEfe += letra + "f" + letra;
+            } else {
+                numConsonantes++;
+                idiomaEfe += letra;
+            }
+        }
+        
+        document.write("<p><strong>Número de vocales:</strong> " + numVocales + "</p>");
+        document.write("<p><strong>Número de consonantes:</strong> " + numConsonantes + "</p>");
+        document.write("<p><strong>Idioma de la EFE:</strong> " + idiomaEfe + "</p>");
+    </script>
+
+</body>
+</html>

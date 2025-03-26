@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serie Numérica</title>
+</head>
+
+<body>
+    <h2>Serie del 2 al 400</h2>
+    
+    <script>
+        let i;
+        let suma = 0;
+        let serieTexto = "";
+        let serie = new Array(200);
+        
+        for (i = 0; i < 200; i++) {
+            let num = (i + 1) * 2;
+            serie[i] = num;
+            suma += num;
+            serieTexto += num;
+            if (i < 199) {
+                serieTexto += ", ";
+            }
+        }
+        
+        let promedio = suma / 200;
+        let mediana = (serie[99] + serie[100]) / 2;
+        
+        document.write("<p><strong>Serie:</strong> " + serieTexto + "</p>");
+        document.write("<p><strong>Promedio:</strong> " + promedio + "</p>");
+        document.write("<p><strong>Mediana:</strong> " + mediana + "</p>");
+        document.write("<p><strong>Moda:</strong> No hay (todos los números aparecen una sola vez)</p>");
+    </script>
+</body>
+
+</html>
