@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones con Arreglo</title>
+</head>
+<body>
+    <h2>Resultados</h2>
+    <p id="suma"></p>
+    <p id="concatenacion"></p>
+    <p id="andBooleanos"></p>
+
+    <script>
+        // Crear el arreglo con diferentes tipos de datos
+        let arreglo = [10, "Hola", true, 5, "Mundo", false, 8, "!", true];
+        
+        // Inicializar variables
+        let sumaNumeros = 0;
+        let concatenacionCadenas = "";
+        let andBooleanos = true;
+        
+        // Recorrer el arreglo
+        for (let i = 0; i < arreglo.length; i++) {
+            if (typeof arreglo[i] === "number") {
+                sumaNumeros += arreglo[i];
+            } else if (typeof arreglo[i] === "string") {
+                concatenacionCadenas += arreglo[i] + " ";
+            } else if (typeof arreglo[i] === "boolean") {
+                andBooleanos = andBooleanos && arreglo[i];
+            }
+        }
+        
+        // Mostrar resultados
+        document.getElementById("suma").innerText = "Suma de números: " + sumaNumeros;
+        document.getElementById("concatenacion").innerText = "Concatenación de cadenas: " + concatenacionCadenas.trim();
+        document.getElementById("andBooleanos").innerText = "Resultado de AND booleano: " + andBooleanos;
+    </script>
+</body>
+</html>
