@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Básica</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+
+    .calculator {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    #display {
+      width: 100%;
+      height: 40px;
+      font-size: 24px;
+      text-align: right;
+      margin-bottom: 15px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 60px);
+      gap: 10px;
+      justify-content: center;
+    }
+
+    button {
+      height: 60px;
+      font-size: 22px;
+      border: none;
+      background-color: #eee;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #ccc;
+    }
+
+    .equal {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .equal:hover {
+      background-color: #45a049;
+    }
+
+    .clear {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .clear:hover {
+      background-color: #e53935;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <div class="buttons">
+      <button onclick="btn_click('7')">7</button>
+      <button onclick="btn_click('8')">8</button>
+      <button onclick="btn_click('9')">9</button>
+      <button onclick="btn_click('-')">−</button>
+
+      <button onclick="btn_click('4')">4</button>
+      <button onclick="btn_click('5')">5</button>
+      <button onclick="btn_click('6')">6</button>
+      <button onclick="btn_click('+')">+</button>
+
+      <button onclick="btn_click('1')">1</button>
+      <button onclick="btn_click('2')">2</button>
+      <button onclick="btn_click('3')">3</button>
+      <button class="equal" onclick="btn_click('=')">=</button>
+
+      <button onclick="btn_click('0')">0</button>
+      <button onclick="btn_click('.')">.</button>
+      <button class="clear" onclick="clearDisplay()">C</button>
+    </div>
+  </div>
+
+  <script>
+    function btn_click(val) {
+      var display = document.getElementById("display");
+      if (val === "=") {
+        try {
+          display.value = eval(display.value);
+        } catch (e) {
+          display.value = "Error";
+        }
+      } else {
+        display.value += val;
+      }
+    }
+
+    function clearDisplay() {
+      document.getElementById("display").value = "";
+    }
+  </script>
+
+</body>
+
+</html>
